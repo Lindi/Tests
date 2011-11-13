@@ -23,8 +23,29 @@ package tests.physics
 			var row:Vector.<Number> ;
 			var value:Number ;
 			
+			for ( var i:int = 0; i < 16; i++ )
+			{
+				r = ( i / 4 );
+				c = ( i % 4 );
+				row = M[r] ;
+				
+				//	If the sum of the row and column indices is even
+				//	the value should be 1, otherwise zero (checkerboard)
+				if ( ( r + c ) % 2 > 0 )
+					Assert.assertTrue( row[c] == 0 );
+				else Assert.assertTrue( row[c] != 0 );
+				
+				//	If the quadrant of the row and column
+				//	is not divisible by 3, multiply -1
+				m = int( Math.floor( r / 2 ) + Math.floor( c / 2 ));
+				if ( ( m % 3 ) % 2 > 0 )
+					Assert.assertTrue( row[c] <= 0 );
+				else Assert.assertTrue( row[c] >= 0 );
+				
+			}
 			//	Test that A and A-transpose were copied correctly
-			for ( var i:int = 0; i < n; i++)
+			m = int( n / 4 );
+			for ( i = 0; i < n; i++)
 			{
 				r = ( i / m ) ;
 				c = ( i % m ) ;
