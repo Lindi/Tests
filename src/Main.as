@@ -23,8 +23,8 @@ package
 			core.addListener( listener );
 			//core.run( tests.geometry.BspTreeTest );
 			//core.run( tests.physics.PolygonIntersectionTest );
-			//core.run( tests.physics.lcp.LcpSolverTest );
-			core.run( tests.physics.PolygonDistanceTest );
+			core.run( tests.physics.lcp.LcpSolverTest );
+			//core.run( tests.physics.PolygonDistanceTest );
 		}
 	}
 }
