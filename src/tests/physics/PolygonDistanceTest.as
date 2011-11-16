@@ -2,6 +2,7 @@ package tests.physics
 {
 	import geometry.Polygon2d;
 	import geometry.Vector2d;
+	import physics.lcp.LcpSolver ;
 	
 	import org.flexunit.Assert;
 	
@@ -13,20 +14,21 @@ package tests.physics
 		public function distance():void
 		{
 			var polygon0:Polygon2d = new Polygon2d();
-			polygon0.addVertex( new Vector2d( 1, 2 ));
-			polygon0.addVertex( new Vector2d( 3, 1 ));
-			polygon0.addVertex( new Vector2d( 2, 3 ));
+			polygon0.addVertex( new Vector2d( 1, 4 ));
+			polygon0.addVertex( new Vector2d( 2, 2 ));
+			polygon0.addVertex( new Vector2d( 3, 4 ));
 			polygon0.orderVertices();
 			polygon0.updateLines();
 				
 			var polygon1:Polygon2d = new Polygon2d();
-			polygon1.addVertex( new Vector2d( 2, 5 ));
-			polygon1.addVertex( new Vector2d( 3, 7 ));
-			polygon1.addVertex( new Vector2d( 1, 6 ));
+			polygon1.addVertex( new Vector2d( 3, 0 ));
+			polygon1.addVertex( new Vector2d( 5, 0 ));
+			polygon1.addVertex( new Vector2d( 4, 2 ));
 			polygon1.orderVertices();
 			polygon1.updateLines();
 			
 			var solution:Object = PolygonDistance.distance( polygon0, polygon1 );
+			Assert.assertEquals( solution.status, LcpSolver.FOUND_SOLUTION );
 			var M:Vector.<Vector.<Number>> = ( solution.M as Vector.<Vector.<Number>> );
 			
 			var n:int = ( M.length - 4 ) * 4;
