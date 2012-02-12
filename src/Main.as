@@ -5,10 +5,11 @@ package
 	import org.flexunit.internals.TraceListener;
 	import org.flexunit.runner.FlexUnitCore;
 	
-	import tests.geometry.BspTreeTest;
+	import tests._3d.CameraTest ;
 	import tests.physics.PolygonDistanceTest;
 	import tests.physics.PolygonIntersectionTest;
 	import tests.physics.lcp.LcpSolverTest;
+	import tests.geometry.QuaternionTest ;
 	
 	
 	public class Main extends Sprite
@@ -24,7 +25,8 @@ package
 			//core.run( tests.geometry.BspTreeTest );
 			//core.run( tests.physics.PolygonIntersectionTest );
 			//core.run( tests.physics.lcp.LcpSolverTest );
-			core.run( tests.physics.PolygonDistanceTest );
+			//core.run( tests.geometry.QuaternionTest );
+			core.run( tests._3d.CameraTest );
 		}
 	}
 }

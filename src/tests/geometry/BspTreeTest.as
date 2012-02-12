@@ -1,6 +1,6 @@
 package tests.geometry
 {
-	public class BspTreeTest
+	public class CameraTest
 	{
 		import geometry.BspNode;
 		import geometry.Polygon2d;
